@@ -24,6 +24,8 @@ if __name__ == "__main__":
     # -- local STDIO v0
     #mcp.run()
     # local server running on port 8000 v1
-    mcp.run(transport="http", host="127.0.0.1", port=8000)
+    #mcp.run(transport="http", host="127.0.0.1", port=8000)
     # -- https ASGI Streamable v2
-    #uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=False)
+    uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=False)
+    
+    
