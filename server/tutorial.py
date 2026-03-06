@@ -20,5 +20,8 @@ def get_server_info() -> dict:
         "version": mcp.version
     }
 
+# ASGI app for gunicorn/uvicorn: gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 server.tutorial:app
+app = mcp.http_app()
+
 if __name__ == "__main__":
     mcp.run(transport="http", port=8000)
