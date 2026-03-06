@@ -20,7 +20,7 @@ import sys
 
 from fastmcp import Client
 
-MCP_URL = "http://127.0.0.1:8000/sse"
+MCP_URL = "http://127.0.0.1:8000/mcp"
 client = Client(MCP_URL)
 
 

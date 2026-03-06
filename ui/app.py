@@ -20,7 +20,7 @@ from fastapi.responses import PlainTextResponse
 
 from fastmcp import Client
 
-MCP_URL = "http://127.0.0.1:8000/sse"
+MCP_URL = "http://127.0.0.1:8000/mcp"
 mcp_client = Client(MCP_URL)
 
 

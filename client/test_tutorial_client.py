@@ -10,7 +10,7 @@ import asyncio
 from fastmcp import Client
 
 # Server must use /sse path for FastMCP SSE transport
-SERVER_URL = "http://127.0.0.1:8000/sse"
+SERVER_URL = "http://127.0.0.1:8000/mcp"
 client = Client(SERVER_URL)
 
 

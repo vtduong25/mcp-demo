@@ -2,6 +2,7 @@
 # Run the MCP server, then the CLI bot.
 # Usage: ./run_server_and_bot.sh
 # When you exit the bot (quit), the server is stopped.
+# To run the script: bash run_server_and_bot.sh 
 
 set -e
 cd "$(dirname "$0")"
