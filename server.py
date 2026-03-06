@@ -1,24 +1,29 @@
-"""MCP server - runs over HTTP on port 8000."""
-
 from fastmcp import FastMCP
+import json
 
-mcp = FastMCP("MCP Demo Server")
+mcp = FastMCP("Rebrickable MCP")
 
-
+# ---------------------------
+# Hello World, v0
+# ---------------------------
 @mcp.tool
-def greet(name: str) -> str:
-    """Greet a person by their name."""
-    return f"Hello, {name}! Welcome to the MCP server."
+def hello(name: str) -> str:
+    return f"Hey! What's up {name}?"
 
+@mcp.resource("greeting://{name}", description="Read-only greeting resource")
+def greeting_resource(name: str) -> str:
+    return f"Hey! Resource says {name} was here!"
 
-@mcp.tool
-def add(a: int, b: int) -> int:
-    """Add two numbers."""
-    return a + b
-
-
+# ---------------------------
+# ASGI app initialization
+# ---------------------------
 app = mcp.http_app()
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    # -- local STDIO v0
+    #mcp.run()
+    # local server running on port 8000 v1
+    mcp.run(transport="http", host="127.0.0.1", port=8000)
+    # -- https ASGI Streamable v2
+    #uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=False)
