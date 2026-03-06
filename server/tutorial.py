@@ -21,7 +21,18 @@ def get_server_info() -> dict:
     }
 
 # ASGI app for gunicorn/uvicorn: gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 server.tutorial:app
+# app = mcp.http_app()
+
+# if __name__ == "__main__":
+#     mcp.run(transport="http", port=8000)
+
 app = mcp.http_app()
 
 if __name__ == "__main__":
-    mcp.run(transport="http", port=8000)
+    import uvicorn
+    # -- local STDIO v0
+    	# mcp.run()
+    # local server running on port 8000 v1
+    	#mcp.run(transport="http", host="127.0.0.1", port=8000)
+    # -- https ASGI Streamable v2
+    uvicorn.run(app, host="127.0.0.1", port=8000, reload=False)
