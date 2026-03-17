@@ -221,7 +221,8 @@ def rebrickable_get_set_minifigs(set_num: str, page: int = 1, page_size: int = 1
 # --------------------------
 # ASGI app initialization
 # --------------------------
-app = mcp.http_app()
+# stateless_http=True avoids "Session not found" when client reconnects or server restarts
+app = mcp.http_app(stateless_http=True)
 
 if __name__ == "__main__":
     import uvicorn
