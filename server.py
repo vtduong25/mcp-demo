@@ -218,9 +218,9 @@ def rebrickable_get_set_minifigs(set_num: str, page: int = 1, page_size: int = 1
     )
     return json.dumps(data, indent=2)
 
-# ---------------------------
+# --------------------------
 # ASGI app initialization
-# ---------------------------
+# --------------------------
 app = mcp.http_app()
 
 if __name__ == "__main__":
