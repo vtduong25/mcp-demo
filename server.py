@@ -219,7 +219,7 @@ def rebrickable_get_set_minifigs(set_num: str, page: int = 1, page_size: int = 1
     return json.dumps(data, indent=2)
 
 # --------------------------
-# ASGI app initialization 
+# ASGI app initialization
 # --------------------------
 # stateless_http=True avoids "Session not found" when client reconnects or server restarts
 app = mcp.http_app(stateless_http=True)
